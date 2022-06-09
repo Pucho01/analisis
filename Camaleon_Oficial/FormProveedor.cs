@@ -39,9 +39,30 @@ namespace Presentacion
         {
 
         }
+        private void txtcorreo_Validated(object sender, EventArgs e)
+        {
+            if (txtcorreo.Text == "")
+            {
+                MessageBox.Show("Ingrese el Correo Porfavor");
+
+                txtcorreo.Focus();
+                errorProvider1.SetError(txtcorreo, "Llenar el Correo");
+            }
+            else
+            {
+
+                errorProvider1.SetError(txtcorreo, null);
+                if (editar == false) ;
+
+            }
+        }
+
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+
+
+
             if (editar == false)
             {
                 try
@@ -51,12 +72,14 @@ namespace Presentacion
                     MessageBox.Show("Registro de proveedor exitoso");
                     MostrarProveedores();
                     LimpiarForm();
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("No se pudo agregar el proveedor por " + ex);
                 }
             }
+
             if (editar == true)
             {
                 try
@@ -72,9 +95,13 @@ namespace Presentacion
                     MessageBox.Show("No se pudo editar el proveedor por " + ex);
                 }
             }
-
         }
-        private void LimpiarForm()
+          
+
+
+
+           
+            private void LimpiarForm()
         {
             txt_nom.Text = "";
             txt_paterno.Text = "";
@@ -82,6 +109,7 @@ namespace Presentacion
             txtdir.Text = "";
             txtcorreo.Text = "";
         }
+
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
@@ -154,7 +182,28 @@ namespace Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+
         }
+
+        //private void txtcorreo_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (txtcorreo.Text == "")
+        //    {
+        //        MessageBox.Show("Ingrese el Correo Porfavor");
+
+        //        txtcorreo.Focus();
+        //        errorProvider1.SetError(txtcorreo, "Llenar el correo");
+        //    }
+        //    else
+        //    {
+
+        //        errorProvider1.SetError(txtcorreo, null);
+        //        if (editar == false) ;
+
+
+        //    }
+        //}
+       
+       
     }
 }

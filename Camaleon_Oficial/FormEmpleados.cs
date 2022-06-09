@@ -41,8 +41,24 @@ namespace Presentacion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (editar == false)
+
+
+            if (txtusu.Text == "")
             {
+                MessageBox.Show("Ingrese el Documento de Identidad Porfavor");
+
+                txtusu.Focus();
+                errorProvider1.SetError(txtusu, "Llenar el Documento de identidad Porfavor");
+            }
+            else
+            {
+
+                errorProvider1.SetError(txtusu, null);
+                if (editar == false)
+
+
+                    
+            
                 try
                 {
                     objectoCD.InsertarEmpleado(cmbcargo.SelectedValue.ToString(), txtnombre.Text, txtpaterno.Text, txtmaterno.Text, txtci.Text, txtcel.Text, txtdirec.Text, txtcorreo.Text, cmbsucursal.SelectedValue.ToString(), txtusu.Text, txtpass.Text);
@@ -70,9 +86,14 @@ namespace Presentacion
                 {
                     MessageBox.Show("No se pudo editar el empleado por " + ex);
                 }
+
+           
             }
+
+
             
         }
+
         private void LimpiarForm()//limpia los datos ingresados del formulario
         {
 
