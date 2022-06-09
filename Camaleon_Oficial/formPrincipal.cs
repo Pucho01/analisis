@@ -53,7 +53,8 @@ namespace Presentacion
                 btn_dis.Enabled = false;
                 btn_empleados.Enabled = false;
                 btn_prov.Enabled = false;
-               
+                btn_redi.Enabled = false;
+                btnreportes.Enabled = false;
 
             }
             
