@@ -38,8 +38,13 @@ namespace Presentacion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            if(ValidateChildren(ValidationConstraints.Enabled)) // nos pide el campo
+                {
+                MessageBox.Show(txt_cel.Text,"tas pendejo",MessageBoxButtons.OK,MessageBoxIcon.Error);//campo 
+
+            }
             if (editar == false)
-            {
+            { 
                 try
                 {
                     objetoCD.InsertarCliente(txt_ci.Text, txt_nom.Text, txt_paterno.Text, txt_materno.Text, txt_cel.Text, txt_direc.Text);
@@ -47,6 +52,7 @@ namespace Presentacion
                     MessageBox.Show("Registro de cliente exitoso");
                     MostrarClientes();
                     LimpiarForm();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -81,19 +87,22 @@ namespace Presentacion
             txt_direc.Text = "";
             
         }
-        private bool validarCampos()
-        {
-            bool ok true;
-            if (txt_ci.Text=="")
-            {
-                ok = false;
-                errorProvider1.SetError(txt_ci, "ingresar el CI");
-            }
-            return ok;
+       // private bool Validardatos()
+        //{
+            //bool ok = true;
+           // if (txt_cel.Text=="")
+           // {
+               // ok false;
+                //errorProvider1.SetError(txt_ci, "taswebon");
 
-        }
+            //}
+            //return ok;//
+       // }//
 
-        private void btn_editar_Click(object sender, EventArgs e)
+        
+           
+
+            private void btn_editar_Click(object sender, EventArgs e)
         {
             if (dgb_cliente.SelectedRows.Count > 0)
             {
@@ -191,6 +200,26 @@ namespace Presentacion
                 e.Handled = true;
                 return;
             }
+
         }
+
+        private void txt_cel_Validating(object sender, CancelEventArgs e) // no funciona
+        {
+            if ((txt_ci.Text)=="")
+            {
+               e.Cancel = true;
+                txt_ci.Focus();
+                error.SetError(txt_ci, "tas pendejo");
+            }
+            else
+            {
+                e.Cancel= false;
+                error.SetError(txt_ci, null);
+            }
+        }
+
+      // private void txt_cel_Validated(object sender, EventArgs e)
+       
+       
     }
 }

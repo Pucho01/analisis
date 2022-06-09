@@ -7,7 +7,7 @@ namespace Presentacion
         CD_Distribuidor objectoCD = new CD_Distribuidor();//instanciar capa 
         private string idDis; //= null;
         private bool editar = false;
-        
+
         public FormDistribuidor()
         {
             InitializeComponent();
@@ -25,33 +25,47 @@ namespace Presentacion
 
         private void dgv_Distribuidor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
 
         }
 
-       
+
         private void btn_guardardis_Click(object sender, EventArgs e)
         {
-            if (editar == false)
+            if (txt_nomdis.Text == "")
             {
-                try
-                {
-                    objectoCD.InsertarDistribuidor(txt_nomdis.Text, txt_direcciondis.Text, txt_telefonodis.Text);
+                MessageBox.Show("Falta el name");
+                 
+                txt_nomdis.Focus();
+                errorProvider1.SetError(txt_nomdis, "Llenar el nombre");
+            }
+            else
+            {
+                 
+                errorProvider1.SetError(txt_nomdis, null);
 
-                    MessageBox.Show("Registro de Distribuidor exitoso");
-                    MostrarDistribuidores();
-                    LimpiarForm();
-                }
-                catch (Exception ex)
+
+                if (editar == false)
                 {
-                    MessageBox.Show("No se pudo agregar el Distribuidor por " + ex);
+                    try
+                    {
+                        objectoCD.InsertarDistribuidor(txt_nomdis.Text, txt_direcciondis.Text, txt_telefonodis.Text);
+
+                        MessageBox.Show("Registro de Distribuidor exitoso");
+                        MostrarDistribuidores();
+                        LimpiarForm();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo agregar el Distribuidor por " + ex);
+                    }
                 }
             }
             if (editar == true)
             {
                 try
                 {
-                    objectoCD.EditarDistribuidor(txt_nomdis.Text, txt_direcciondis.Text, txt_telefonodis.Text,idDis);
+                    objectoCD.EditarDistribuidor(txt_nomdis.Text, txt_direcciondis.Text, txt_telefonodis.Text, idDis);
                     MessageBox.Show("Se editó Correctamente");
                     MostrarDistribuidores();
                     LimpiarForm();
@@ -69,8 +83,20 @@ namespace Presentacion
             txt_nomdis.Text = "";
             txt_direcciondis.Text = "";
             txt_telefonodis.Text = "";
-            
+
         }
+        //crear funcion
+        public static bool textVacios(TextBox pTxt)
+        {
+            if (pTxt.Text == string.Empty)
+            {
+                pTxt.Focus();
+                return true;
+            }
+            else
+                return false;
+        }
+        ErrorProvider errorP = new ErrorProvider();
 
         private void btn_editardis_Click(object sender, EventArgs e)
         {
@@ -94,7 +120,7 @@ namespace Presentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            
+
             if (dgv_Distribuidor.SelectedRows.Count > 0)
             {
                 editar = true;
@@ -103,7 +129,7 @@ namespace Presentacion
                 {
                     objectoCD.EliminarDistribuidor(idDis);
                     MessageBox.Show("Se eliminó correctamente");
-                   MostrarDistribuidores();
+                    MostrarDistribuidores();
                 }
                 catch (Exception ex)
                 {
@@ -114,8 +140,8 @@ namespace Presentacion
             else
                 MessageBox.Show("Seleccione una fila por favor");
 
-         
-            
+
+
         }
 
         private void txt_telefonodis_KeyPress(object sender, KeyPressEventArgs e)
@@ -127,7 +153,50 @@ namespace Presentacion
                 return;
             }
         }
+
+        private void txt_nomdis_TextChanged(object sender, EventArgs e)
+        {
+            //if (FormDistribuidor.textVacios(txt_nomdis))
+            //{
+            //    errorP.SetError(txt_nomdis, "No puede dejar vacío");
+            //}
+            //else
+            //    errorP.Clear();
+        }
+
+        private void txt_telefonodis_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //    if (txt_telefonodis.Text.HasValue  )
+            //    {
+
+            //        e.Cancel = true;
+            //        txt_telefonodis.Focus();
+            //        errorProvider1.SetError(txt_telefonodis, "tas pendejo");
+            //    }
+            //    else
+            //    {
+            //        e.Cancel = false;
+            //        errorProvider1.SetError(txt_telefonodis, null);
+            //    }
+        }
+
+        private void txt_nomdis_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //if (txt_nomdis.Text=="")
+            //{
+            //    MessageBox.Show(txt_nomdis.Text);
+            //    e.Cancel = true;
+            //    txt_nomdis.Focus();
+            //    errorProvider1.SetError(txt_nomdis, "tas pendejo");
+            //}
+            //else
+            //{
+            //    e.Cancel = false;
+            //    errorProvider1.SetError(txt_nomdis, null);
+            //}
+
+        }
     }
 }
 
-       
+
