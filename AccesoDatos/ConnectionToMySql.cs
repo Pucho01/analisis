@@ -8,7 +8,7 @@ namespace AccesoDatos
         private readonly string connectionString;
         public ConnectionToMySql()
         {
-            connectionString = "server = localhost; port = 3306; uid = root; pwd = ''; database = camaleon2;";
+            connectionString = "server = localhost; port = 3306; uid = root; pwd = ''; database = camaleon3;";
         }
         protected MySqlConnection GetConnection()
         {

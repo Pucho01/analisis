@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using MySql.Data.MySqlClient;
 
 
 namespace Presentacion
@@ -83,7 +84,7 @@ namespace Presentacion
             txtstock.Text = "";
 
         }
-        private void listarCategoria()//contenido de combobox
+        public void listarCategoria()//contenido de combobox
         {
             CD_Categoria cD_Categoria = new CD_Categoria();
             cmbcategoria.DataSource = cD_Categoria.MostrarCategoria();
@@ -97,6 +98,15 @@ namespace Presentacion
             cmbmarca.DisplayMember = "nombre_mar";
             cmbmarca.ValueMember = "id_marca";
         }
+        /*public void listarMarca(string id_categoria)
+        {
+            MySqlCommand cmd = new MySqlCommand("Select nombre_mar from marca where id_categoria = @id_cat");
+            cmd.Parameters.AddWithValue("id_cat", id_categoria);
+            MySqlDataReader da = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }*/
+       
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
@@ -165,6 +175,20 @@ namespace Presentacion
                 return;
             }
         }
+
+        private void cmbmarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        //combobox
+        /*private void cmbcategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbcategoria.SelectedValue.ToString() != null)
+            {
+                string id_categoria = cmbcategoria.SelectedValue.ToString();
+                listarMarca(id_categoria);
+            }
+        }*/
     }
 }
 

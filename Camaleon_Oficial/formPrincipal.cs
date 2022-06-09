@@ -31,26 +31,29 @@ namespace Presentacion
         private void formPrincipal_Load(object sender, EventArgs e)
         {
             LoadUserData();
-            if (UserCache.Id_cargo == Cargo.GG)
+            if (UserCache.Id_cargo == Cargo.gG)
             {
 
             }
             
-            if (UserCache.Id_cargo == Cargo.GD)
+            if (UserCache.Id_cargo == Cargo.gD)
             {
                 btn_producto.Enabled = false;
                 btn_empleados.Enabled = false;
                 btn_anadirCliente.Enabled = false;
 
             }
-            if(UserCache.Id_cargo == Cargo.AS)
+            if(UserCache.Id_cargo == Cargo.aS)
             {
                 
             }
-            if (UserCache.Id_cargo == Cargo.VN)
+            if (UserCache.Id_cargo == Cargo.vN)
             {
                 btn_producto.Enabled = false;
-                //btnproveedores.Enabled = false;
+                btn_dis.Enabled = false;
+                btn_empleados.Enabled = false;
+                btn_prov.Enabled = false;
+               
 
             }
             
@@ -82,19 +85,19 @@ namespace Presentacion
 
         public void AnyMethod()//permisos de usuario
         {
-            if (UserCache.Id_cargo == Cargo.GG)
+            if (UserCache.Id_cargo == Cargo.gG)
             {
 
             }
-            if (UserCache.Id_cargo == Cargo.GD)
+            if (UserCache.Id_cargo == Cargo.gD)
             {
 
             }
-            if (UserCache.Id_cargo == Cargo.AS)
+            if (UserCache.Id_cargo == Cargo.aS)
             {
 
             }
-            if (UserCache.Id_cargo == Cargo.VN)
+            if (UserCache.Id_cargo == Cargo.vN)
             {
 
             }
@@ -181,6 +184,21 @@ namespace Presentacion
         private void btn_dis_Click(object sender, EventArgs e)
         {
             AbrirFormhijo(new FormDistribuidor());
+        }
+
+        private void btn_ventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormhijo(new Reportes.RP_Ventas());
+        }
+
+        private void btn_prod_Click(object sender, EventArgs e)
+        {
+            AbrirFormhijo(new Reportes.RP_Productos());
+        }
+
+        private void btn_emp_Click(object sender, EventArgs e)
+        {
+            AbrirFormhijo(new Reportes.RP_Empleados()); 
         }
         ////[D11Import("user32.DLL", EntryPoint = "ReleaseCapture")]
         //private extern static void ReleaseCapture();

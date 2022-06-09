@@ -8,9 +8,9 @@ namespace Common.Cache
 {
     public struct Cargo
     {
-        public const string GG = "Gerente General";
-        public const string GD = "Geremte de Distribución";
-        public const string AS = "Administrador de Sucursal";
-        public const string VN = "Vendedor";
+        public const string gG = "GG";
+        public const string gD = "GD";
+        public const string aS = "AS";
+        public const string vN = "VN";
     }
 }

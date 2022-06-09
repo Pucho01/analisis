@@ -50,23 +50,39 @@ namespace AccesoDatos
         }
         public void AnyMethod()//permisos de usuario
         {
-            if (UserCache.Id_cargo == Cargo.GG)
+            /* if (UserCache.Id_cargo == Cargo.GG)
+             {
+
+             }
+             if (UserCache.Id_cargo == Cargo.GD)
+             {
+
+             }
+             if (UserCache.Id_cargo == Cargo.AS)
+             {
+
+             }
+             if (UserCache.Id_cargo == Cargo.VN)
+             {
+
+             }*/
+            if (UserCache.Id_cargo == Cargo.gG)
             {
 
             }
-            if (UserCache.Id_cargo == Cargo.GD)
+            if (UserCache.Id_cargo == Cargo.gD)
             {
 
             }
-            if (UserCache.Id_cargo == Cargo.AS)
+            if (UserCache.Id_cargo == Cargo.aS)
             {
 
             }
-            if (UserCache.Id_cargo == Cargo.VN)
+            if (UserCache.Id_cargo == Cargo.vN)
             {
 
             }
-            
+
         }
     }
 }

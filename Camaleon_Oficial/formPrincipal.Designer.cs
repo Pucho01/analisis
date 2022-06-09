@@ -53,8 +53,8 @@
             this.btn_anadirCliente = new System.Windows.Forms.Button();
             this.btn_perfilUsu = new System.Windows.Forms.Button();
             this.panel_reportes = new System.Windows.Forms.Panel();
-            this.btn_productos = new System.Windows.Forms.Button();
-            this.btn_cuadros = new System.Windows.Forms.Button();
+            this.btn_emp = new System.Windows.Forms.Button();
+            this.btn_prod = new System.Windows.Forms.Button();
             this.btn_ventas = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelcontenedor = new System.Windows.Forms.Panel();
@@ -381,8 +381,8 @@
             // 
             // panel_reportes
             // 
-            this.panel_reportes.Controls.Add(this.btn_productos);
-            this.panel_reportes.Controls.Add(this.btn_cuadros);
+            this.panel_reportes.Controls.Add(this.btn_emp);
+            this.panel_reportes.Controls.Add(this.btn_prod);
             this.panel_reportes.Controls.Add(this.btn_ventas);
             this.panel_reportes.Location = new System.Drawing.Point(0, 449);
             this.panel_reportes.Name = "panel_reportes";
@@ -390,31 +390,33 @@
             this.panel_reportes.TabIndex = 13;
             this.panel_reportes.Visible = false;
             // 
-            // btn_productos
+            // btn_emp
             // 
-            this.btn_productos.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_productos.FlatAppearance.BorderSize = 0;
-            this.btn_productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_productos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.btn_productos.Location = new System.Drawing.Point(0, 62);
-            this.btn_productos.Name = "btn_productos";
-            this.btn_productos.Size = new System.Drawing.Size(219, 35);
-            this.btn_productos.TabIndex = 11;
-            this.btn_productos.Text = "Stock de productos";
-            this.btn_productos.UseVisualStyleBackColor = false;
+            this.btn_emp.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_emp.FlatAppearance.BorderSize = 0;
+            this.btn_emp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_emp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.btn_emp.Location = new System.Drawing.Point(0, 62);
+            this.btn_emp.Name = "btn_emp";
+            this.btn_emp.Size = new System.Drawing.Size(219, 35);
+            this.btn_emp.TabIndex = 11;
+            this.btn_emp.Text = "Empleados";
+            this.btn_emp.UseVisualStyleBackColor = false;
+            this.btn_emp.Click += new System.EventHandler(this.btn_emp_Click);
             // 
-            // btn_cuadros
+            // btn_prod
             // 
-            this.btn_cuadros.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_cuadros.FlatAppearance.BorderSize = 0;
-            this.btn_cuadros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cuadros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.btn_cuadros.Location = new System.Drawing.Point(0, 33);
-            this.btn_cuadros.Name = "btn_cuadros";
-            this.btn_cuadros.Size = new System.Drawing.Size(219, 35);
-            this.btn_cuadros.TabIndex = 10;
-            this.btn_cuadros.Text = "Cuadros estadisticos";
-            this.btn_cuadros.UseVisualStyleBackColor = false;
+            this.btn_prod.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_prod.FlatAppearance.BorderSize = 0;
+            this.btn_prod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prod.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.btn_prod.Location = new System.Drawing.Point(0, 33);
+            this.btn_prod.Name = "btn_prod";
+            this.btn_prod.Size = new System.Drawing.Size(219, 35);
+            this.btn_prod.TabIndex = 10;
+            this.btn_prod.Text = "Productos";
+            this.btn_prod.UseVisualStyleBackColor = false;
+            this.btn_prod.Click += new System.EventHandler(this.btn_prod_Click);
             // 
             // btn_ventas
             // 
@@ -428,6 +430,7 @@
             this.btn_ventas.TabIndex = 9;
             this.btn_ventas.Text = "Ventas";
             this.btn_ventas.UseVisualStyleBackColor = false;
+            this.btn_ventas.Click += new System.EventHandler(this.btn_ventas_Click);
             // 
             // pictureBox1
             // 
@@ -534,8 +537,8 @@
         private PictureBox btncloseprin;
         private PictureBox btn_min_principal;
         private Panel panel_reportes;
-        private Button btn_productos;
-        private Button btn_cuadros;
+        private Button btn_emp;
+        private Button btn_prod;
         private Button btn_ventas;
         private Button btn_redi;
         private Panel panelredi;
