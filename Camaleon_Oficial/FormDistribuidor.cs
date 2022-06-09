@@ -34,7 +34,7 @@ namespace Presentacion
         {
             if (txt_nomdis.Text == "")
             {
-                MessageBox.Show("Falta el name");
+                MessageBox.Show("Ingrese el nombre Porfavor");
                  
                 txt_nomdis.Focus();
                 errorProvider1.SetError(txt_nomdis, "Llenar el nombre");
@@ -195,6 +195,13 @@ namespace Presentacion
             //    errorProvider1.SetError(txt_nomdis, null);
             //}
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form formulario = new Formbajasdistribuidores();
+            formulario.Show();
+            this.Hide();
         }
     }
 }

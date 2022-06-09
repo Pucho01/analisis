@@ -44,6 +44,7 @@ namespace Presentacion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+
             if (editar == false)
             {
                 try
@@ -73,6 +74,7 @@ namespace Presentacion
                     MessageBox.Show("No se pudo editar el Producto por " + ex);
                 }
             }
+
         }
         private void LimpiarForm()
         {
@@ -165,6 +167,26 @@ namespace Presentacion
                 return;
             }
         }
+
+        private void txtprecio_Validated(object sender, EventArgs e)
+        {
+            if (txtprecio.Text == "")
+            {
+                MessageBox.Show("Ingrese el Precio del producto Porfavor");
+
+                txtprecio.Focus();
+                errorProvider1.SetError(txtprecio, "Llenar el Precio del producto");
+            }
+            else
+            {
+
+                errorProvider1.SetError(txtprecio, null);
+                if (editar == false) ;
+
+            }
+        }
     }
+
 }
+
 
